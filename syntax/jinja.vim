@@ -1,15 +1,10 @@
 " Vim syntax file
 " Language:	Jinja template
 " Maintainer:	Armin Ronacher <armin.ronacher@active-4.com>
-" Last Change:	2008 May 9
 "
 " Known Bugs:
 "   because of odd limitations dicts and the modulo operator
 "   appear wrong in the template.
-"
-" Changes:
-"
-"     2008 May 9:     Added support for Jinja2 changes (new keyword rules)
 
 " For version 5.x: Clear all syntax items
 " For version 6.x: Quit when a syntax file was already loaded
