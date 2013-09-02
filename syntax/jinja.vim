@@ -1,16 +1,4 @@
-" Vim syntax file
-" Language:	Jinja template
-" Maintainer:	Armin Ronacher <armin.ronacher@active-4.com>
-"
-" Known Bugs:
-"   because of odd limitations dicts and the modulo operator
-"   appear wrong in the template.
-
-" For version 5.x: Clear all syntax items
-" For version 6.x: Quit when a syntax file was already loaded
-if version < 600
-  syntax clear
-elseif exists("b:current_syntax")
+if exists("b:current_syntax")
   finish
 endif
 
@@ -71,40 +59,26 @@ syn match jinjaStatement containedin=jinjaTagBlock contained /\<with\(out\)\?\s\
 syn region jinjaTagBlock matchgroup=jinjaTagDelim start=#^\s*%# end=#$# keepend containedin=ALLBUT,jinjaTagBlock,jinjaVarBlock,jinjaRaw,jinjaString,jinjaNested,jinjaComment
 
 
-" Define the default highlighting.
-" For version 5.7 and earlier: only when not done already
-" For version 5.8 and later: only when an item doesn't have highlighting yet
-if version >= 508 || !exists("did_jinja_syn_inits")
-  if version < 508
-    let did_jinja_syn_inits = 1
-    command -nargs=+ HiLink hi link <args>
-  else
-    command -nargs=+ HiLink hi def link <args>
-  endif
+hi def link jinjaPunctuation jinjaOperator
+hi def link jinjaAttribute jinjaVariable
+hi def link jinjaFunction jinjaFilter
 
-  HiLink jinjaPunctuation jinjaOperator
-  HiLink jinjaAttribute jinjaVariable
-  HiLink jinjaFunction jinjaFilter
+hi def link jinjaTagDelim jinjaTagBlock
+hi def link jinjaVarDelim jinjaVarBlock
+hi def link jinjaCommentDelim jinjaComment
+hi def link jinjaRawDelim jinja
 
-  HiLink jinjaTagDelim jinjaTagBlock
-  HiLink jinjaVarDelim jinjaVarBlock
-  HiLink jinjaCommentDelim jinjaComment
-  HiLink jinjaRawDelim jinja
-
-  HiLink jinjaSpecial Special
-  HiLink jinjaOperator Normal
-  HiLink jinjaRaw Normal
-  HiLink jinjaTagBlock PreProc
-  HiLink jinjaVarBlock PreProc
-  HiLink jinjaStatement Statement
-  HiLink jinjaFilter Function
-  HiLink jinjaBlockName Function
-  HiLink jinjaVariable Identifier
-  HiLink jinjaString Constant
-  HiLink jinjaNumber Constant
-  HiLink jinjaComment Comment
-
-  delcommand HiLink
-endif
+hi def link jinjaSpecial Special
+hi def link jinjaOperator Normal
+hi def link jinjaRaw Normal
+hi def link jinjaTagBlock PreProc
+hi def link jinjaVarBlock PreProc
+hi def link jinjaStatement Statement
+hi def link jinjaFilter Function
+hi def link jinjaBlockName Function
+hi def link jinjaVariable Identifier
+hi def link jinjaString Constant
+hi def link jinjaNumber Constant
+hi def link jinjaComment Comment
 
 let b:current_syntax = "jinja"
