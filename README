@@ -1,2 +1,25 @@
+Jinja for Vim
+-------------
+
 Jinja for Vim.  This is the updated version unlike the
 one on vimscripts.
+
+Installation
+------------
+
+If you don't have a preferred installation method, I recommend installing
+pathogen.vim, and then simply copy and paste:
+
+   cd ~/.vim/bundle
+   git clone git://github.com/mitsuhiko/vim-jinja.git
+
+Configuration
+-------------
+
+  g:htmljinja_disable_detection (Default: 0)
+    If set the plugin will not try to autodetect HTML files that
+    contain Jinja code.
+
+  g:htmljinja_disable_html_upgrade (Default: 0)
+    If set the plugin will not try to check on each write of an HTML
+    file it it should upgrade to htmljinja
