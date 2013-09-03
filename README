@@ -4,6 +4,14 @@ Jinja for Vim
 Jinja for Vim.  This is the updated version unlike the
 one on vimscripts.
 
+Features
+--------
+
+- Syntax highlighting
+- Automatic detection of Jinja HTML templates that plays well
+  with Django and other HTML files.
+- Indent support
+
 Installation
 ------------
 
