@@ -25,7 +25,8 @@ fun! s:TryDetectJinja()
 
   let n = 1
   while n < 50 && n < line("$")
-    if getline(n) =~ '{%\s*\(extends\|block\|macro\|set\|if\|for\|include\|trans\)\>'
+    let line = getline(n)
+    if line =~ '{%\s*\(extends\|block\|macro\|set\|if\|for\|include\|trans\)\>' || line =~ '{{\s*\S+[|(]'
       setlocal filetype=htmljinja
       return
     endif
@@ -56,7 +57,7 @@ endfun
 
 fun! s:ConsiderSwitchingToJinjaAgain()
   unlet b:did_jinja_autodetect
-  call s:ConsiderSwitchingToJinja()
+  call s:TryDetectJinja()
 endfun
 
 autocmd FileType htmldjango call s:ConsiderSwitchingToJinja()
