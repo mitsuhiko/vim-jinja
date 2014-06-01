@@ -47,11 +47,11 @@ function! GetJinjaIndent(...)
   let midtags = '\(else\|elif\|pluralize\)'
 
   let pnb_blockstart = pnb =~# tagstart . blocktags . tagend
-  let pnb_blockend   = pnb =~# tagstart . 'end' . blocktags . tagend
+  let pnb_blockend   = pnb =~# tagstart . 'end' . blocktags . tagend || pnb =~# tagstart . 'end' . tagend
   let pnb_blockmid   = pnb =~# tagstart . midtags . tagend
 
   let cur_blockstart = cur =~# tagstart . blocktags . tagend
-  let cur_blockend   = cur =~# tagstart . 'end' . blocktags . tagend
+  let cur_blockend   = cur =~# tagstart . 'end' . blocktags . tagend || cur =~# tagstart . 'end' . tagend
   let cur_blockmid   = cur =~# tagstart . midtags . tagend
 
   if pnb_blockstart && !pnb_blockend
