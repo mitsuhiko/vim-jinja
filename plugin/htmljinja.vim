@@ -61,7 +61,7 @@ fun! s:ConsiderSwitchingToJinjaAgain()
 endfun
 
 autocmd FileType htmldjango call s:ConsiderSwitchingToJinja()
-autocmd FileType html call s:TryDetectJinja()
+autocmd FileType html,xhtml call s:TryDetectJinja()
 
 if !exists("g:htmljinja_disable_html_upgrade") || !g:htmljinja_disable_html_upgrade
   autocmd BufWritePost *.html,*.htm,*.shtml,*.stm call s:ConsiderSwitchingToJinjaAgain()
