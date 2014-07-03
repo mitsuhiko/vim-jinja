@@ -43,7 +43,7 @@ function! GetJinjaIndent(...)
   let tagstart = '.*' . '{%\s*'
   let tagend = '.*%}' . '.*'
 
-  let blocktags = '\(block\|for\|if\|with\|autoescape\|filter\|trans\|macro\|set\)'
+  let blocktags = '\(block\|for\|if\|with\|autoescape\|filter\|trans\|macro\)'
   let midtags = '\(else\|elif\|pluralize\)'
 
   let pnb_blockstart = pnb =~# tagstart . blocktags . tagend
