@@ -56,8 +56,10 @@ fun! s:ConsiderSwitchingToJinja()
 endfun
 
 fun! s:ConsiderSwitchingToJinjaAgain()
-  unlet b:did_jinja_autodetect
-  call s:TryDetectJinja()
+  if exists("b:did_jinja_autodetect")
+    unlet b:did_jinja_autodetect
+    call s:TryDetectJinja()
+  endif
 endfun
 
 autocmd FileType htmldjango call s:ConsiderSwitchingToJinja()
