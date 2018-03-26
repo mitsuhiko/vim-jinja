@@ -26,7 +26,7 @@ fun! s:TryDetectJinja()
   let n = 1
   while n < 50 && n < line("$")
     let line = getline(n)
-    if line =~ '{%\s*\(extends\|block\|macro\|set\|if\|for\|include\|trans\)\>' || line =~ '{{\s*\S+[|(]'
+    if line =~ '{%\(-\|+\)\=\s*\(extends\|block\|macro\|set\|if\|for\|include\|trans\)\>' || line =~ '{{\s*\S+[|(]'
       setlocal filetype=htmljinja
       return
     endif
